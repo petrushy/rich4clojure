@@ -9,7 +9,9 @@
 ;; Write a function which returns the last element in a
 ;; sequence.
 
-(def restricted [last])
+(def restricted [last]
+  ())
+
 
 (def __ :tests-will-fail)
 
