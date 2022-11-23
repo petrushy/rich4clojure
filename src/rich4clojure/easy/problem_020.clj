@@ -11,14 +11,17 @@
 
 (def __ :tests-will-fail)
 
+(defn f [l]
+  (first (drop 1 (reverse l))))
+
 (comment
   
   )
 
 (tests
-  (__ (list 1 2 3 4 5)) := 4
-  (__ ["a" "b" "c"]) := "b"
-  (__ [[1 2] [3 4]]) := [1 2])
+  (f (list 1 2 3 4 5)) := 4
+  (f ["a" "b" "c"]) := "b"
+  (f [[1 2] [3 4]]) := [1 2])
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/bb564e188dc4d73aa37b714b64003dfe
