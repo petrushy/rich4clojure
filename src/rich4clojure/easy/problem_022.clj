@@ -11,6 +11,10 @@
 
 (def restricted [count])
 
+(defn mycount [x]
+  (reduce + (map (fn [x] (int 1)) x))
+  )
+
 (def __ :tests-will-fail)
 
 (comment
@@ -18,11 +22,11 @@
   )
 
 (tests
-  (__ '(1 2 3 3 1)) := 5
-  (__ "Hello World") := 11
-  (__ [[1 2] [3 4] [5 6]]) := 3
-  (__ '(13)) := 1
-  (__ '(:a :b :c)) := 3)
+  (mycount '(1 2 3 3 1)) := 5
+  (mycount "Hello World") := 11
+  (mycount [[1 2] [3 4] [5 6]]) := 3
+  (mycount '(13)) := 1
+  (mycount '(:a :b :c)) := 3)
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/d55eddc37d7a08a3440748ddb75c7ec4
