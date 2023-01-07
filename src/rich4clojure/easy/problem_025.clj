@@ -11,6 +11,10 @@
 
 (def __ :tests-will-fail)
 
+(defn __
+  [x]
+  (filter odd? x))
+
 (comment
   
   )
