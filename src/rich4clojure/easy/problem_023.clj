@@ -10,16 +10,21 @@
 
 (def restricted [reverse rseq])
 
-(def __ :tests-will-fail)
+(def __ :tests-will-fail
+  )
+
+(defn myreverse
+  [x]
+  (reduce conj () x))
 
 (comment
   
   )
 
 (tests
-  (__ [1 2 3 4 5]) := [5 4 3 2 1]
-  (__ (sorted-set 5 7 2 7)) := '(7 5 2)
-  (__ [[1 2][3 4][5 6]]) := [[5 6][3 4][1 2]])
+  (myreverse [1 2 3 4 5]) := [5 4 3 2 1]
+  (myreverse (sorted-set 5 7 2 7)) := '(7 5 2)
+  (myreverse [[1 2][3 4][5 6]]) := [[5 6][3 4][1 2]])
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/904085bff870b46beca9c51605e1b3fc
