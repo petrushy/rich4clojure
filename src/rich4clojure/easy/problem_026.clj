@@ -11,6 +11,11 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [n]
+  (case n
+    1 1
+    ))
+
 (comment
   
   )
