@@ -12,9 +12,18 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [x]
+  (if (empty? x)
+    ()
+    (conj  (__ (rest x)) (first x))))
+
 (comment
+   (__ [1 2 3])
+  (__ [])
+  (reduce conj () [1 2 :a])
+  (into () [1 2 3]))
   
-  )
+
 
 (tests
   (__ [1 2 3 4 5]) := [5 4 3 2 1]
