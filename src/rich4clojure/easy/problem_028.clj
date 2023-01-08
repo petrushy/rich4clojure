@@ -12,14 +12,17 @@
 
 (def __ :tests-will-fail)
 
-(comment
-  
-  )
+(defn myflatten [x]
+  (if (seq? x)
+    (apply concat (map myflatten x))
+    x))
+
+(comment)
 
 (tests
-  (__ '((1 2) 3 [4 [5 6]])) := '(1 2 3 4 5 6)
-  (__ ["a" ["b"] "c"]) := '("a" "b" "c")
-  (__ '((((:a))))) := '(:a))
+ (myflatten '((1 2) 3 [4 [5 6]])) := '(1 2 3 4 5 6)
+ (myflatten ["a" ["b"] "c"]) := '("a" "b" "c")
+ (myflatten '((((:a))))) := '(:a))
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/0c6e3c48cac7434882ca4b2c71ebfce1
