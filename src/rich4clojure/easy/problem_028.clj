@@ -12,15 +12,22 @@
 
 (def __ :tests-will-fail)
 
-(defn myflatten [x]
-  (if (seq? x)
-    (apply concat (map myflatten x))
-    x))
+;; TODO, I don't understand why this isn't working.
 
-(comment)
+(defn myflatten1 [x]
+  (if (sequential? x)
+    (apply concat (map myflatten1 x))
+    [x]))
+
+(defn myflatten2 [x]
+  (if (sequential? x)
+    (mapcat myflatten2 x)
+    [x]))
+
 
 (tests
  (myflatten '((1 2) 3 [4 [5 6]])) := '(1 2 3 4 5 6)
+ 
  (myflatten ["a" ["b"] "c"]) := '("a" "b" "c")
  (myflatten '((((:a))))) := '(:a))
 
