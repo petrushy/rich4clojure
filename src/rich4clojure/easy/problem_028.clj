@@ -14,14 +14,14 @@
 
 ;; TODO, I don't understand why this isn't working.
 
-(defn myflatten1 [x]
+(defn myflatten [x]
   (if (sequential? x)
-    (apply concat (map myflatten1 x))
+    (apply concat (map myflatten x))
     [x]))
 
-(defn myflatten2 [x]
+#dbg (defn myflatten [x]
   (if (sequential? x)
-    (mapcat myflatten2 x)
+    (mapcat myflatten x)
     [x]))
 
 

@@ -1,5 +1,6 @@
 (ns rich4clojure.easy.problem-029
-  (:require [hyperfiddle.rcf :refer [tests]]))
+  (:require clojure.string
+            [hyperfiddle.rcf :refer [tests]]))
 
 ;; = Get the Caps =
 ;; By 4Clojure user: dbyrne
@@ -15,9 +16,17 @@
   
   )
 
+(defn __ [s]
+    (apply str (filter #(Character/isUpperCase %) (seq s))))
+
+
+(comment
+  (map #(Character/isUpperCase %) (seq "AbCD"))
+  )
+
 (tests
   (__ "HeLlO, WoRlD!") := "HLOWRD"
-  (__ "nothing") :=
+  (__ "nothing") := ""
   (__ "$#A(*&987Zf") := "AZ")
 
 ;; Share your solution, and/or check how others did it:
