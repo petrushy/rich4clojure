@@ -13,6 +13,20 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [& x]
+  (apply max x)
+  )
+
+;; Based on internet
+(defn __ [first & rest]
+  (reduce #(if (>= %1 %2)
+             %1
+             %2)
+          first rest))
+
+(defn __ [& x]
+  (last (sort x)))
+
 (comment
   
   )
