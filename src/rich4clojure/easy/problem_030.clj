@@ -11,7 +11,21 @@
 
 (def __ :tests-will-fail)
 
+(defn take-next [x]
+  (split-with #(= (first x) %) x))
+
+(defn __ [x]
+  (if (> (count x) 1)
+  (cons (first (first (take-next x))) (__ (last (take-next x))))
+    x))
+
 (comment
+  (def x [1 1 2 3 3 2 2 3])
+  
+  (take-while #(= 1 %) [1 1 1 2 3])
+  (take-next x) 
+  [(first (take-next x)) (__ (last (take-next x)))]
+  (__ x)
   
   )
 
