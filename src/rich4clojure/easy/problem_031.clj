@@ -11,8 +11,15 @@
 
 (def __ :tests-will-fail)
 
+(defn __  
+  [x] 
+   (partition-by identity x)
+)
+
+(def __ #(partition-by identity %))
+
 (comment
-  
+  (__ [1 2])
   )
 
 (tests

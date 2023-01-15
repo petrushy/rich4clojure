@@ -11,8 +11,11 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [x n]
+  (apply interleave (take n (repeat x))))
+
 (comment
-  
+  (take 4 (repeat :x))
   )
 
 (tests

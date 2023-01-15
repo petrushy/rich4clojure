@@ -11,8 +11,13 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [x]
+  (interleave x x))
+
+(def __ #(interleave % %))
+
 (comment
-  
+   ()
   )
 
 (tests
