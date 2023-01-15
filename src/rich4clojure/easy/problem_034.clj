@@ -13,6 +13,28 @@
 
 (def __ :tests-will-fail)
 
+
+
+(defn __ 
+  [n1 n2]
+  (if (< n1 n2)
+    (cons n1 (__ (inc n1) n2))
+    []) ;; not including last
+)
+
+(defn __ 
+  [n1 n2]
+  (->> n1
+       (iterate inc)
+       (take (- n2 n1))))
+
+(def __ #(loop [a %1
+                b %2
+                res []] 
+           (if (< a b) 
+             (recur (inc a) b (conj res a)) 
+             res)))
+
 (comment
   
   )
