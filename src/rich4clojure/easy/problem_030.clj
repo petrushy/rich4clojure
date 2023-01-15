@@ -26,8 +26,10 @@
   (take-next x) 
   [(first (take-next x)) (__ (last (take-next x)))]
   (__ x)
-  
   )
+
+(defn __ [x]
+  (map first (partition-by identity x)))
 
 (tests
   (apply str (__ "Leeeeeerrroyyy")) := "Leroy"

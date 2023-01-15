@@ -11,6 +11,16 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [x n]
+  (flatten (map #(if (= (count %) n)
+          (drop-last %)
+          %) (partition n n nil x))))
+
+(def __ (fn [x n]
+          (keep-indexed
+           #(when (pos? (mod (inc %) n)) %2)
+           x)))
+
 (comment
   
   )

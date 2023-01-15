@@ -14,6 +14,13 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [a b]
+  (flatten (map vector a b))
+  )
+
+(defn __ [xs ys]
+  (mapcat vector xs ys))
+
 (comment
   
   )

@@ -13,6 +13,9 @@
 
 (def __ :tests-will-fail)
 
+(defn __ [i x]
+  (butlast (mapcat vector x (repeat i)))) ;; drop-last gives lazy sequence
+
 (comment
   
   )
