@@ -13,6 +13,19 @@
 
 (def __ :tests-will-fail)
 
+;; my take
+(defn __ [a b]
+  ;;(def a a)
+  ;;(def b b)
+  (reduce merge (map hash-map a b))
+  )
+
+;; from solutions
+(defn __ [key-vec val-vec]
+  "from vector of keys and vector of values make map (drop any not paired)" 
+  (apply assoc {} (interleave key-vec val-vec)))
+
+
 (comment
   
   )
